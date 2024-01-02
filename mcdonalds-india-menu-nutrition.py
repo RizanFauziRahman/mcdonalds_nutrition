@@ -6,7 +6,7 @@ from sklearn.cluster import KMeans
 
 df = pd.read_csv("India_Menu.csv")
 
-X = df.drop(['Menu Category', 'Menu Items', 'Per Serve Size', 'Energy (kCal)', 'Sat Fat (g)', 'Trans fat (g)', 'Total carbohydrate (g)', 'Added Sugars (g)', 'Sodium (mg)'], axis=1)
+x = df.drop(['Menu Category', 'Menu Items', 'Per Serve Size', 'Energy (kCal)', 'Sat Fat (g)', 'Trans fat (g)', 'Total carbohydrate (g)', 'Added Sugars (g)', 'Sodium (mg)'], axis=1)
 
 st.header("MCD Indian Nutrition")
 st.write('Data yang berisikan mengenai nutrition di mcd india')
@@ -16,7 +16,7 @@ st.write(df)
 #menampilkan elbow
 clusters = []
 for i in range(1, 10):
-    km = KMeans(n_clusters=i).fit(X)
+    km = KMeans(n_clusters=i).fit(x)
     clusters.append(km.inertia_)
 
 fig, ax = plt.subplots(figsize=(12, 8))
@@ -35,7 +35,7 @@ plt.show()
 st.set_option('deprecation.showPyplotGlobalUse', False)
 elbo_plot = st.pyplot()
 
-st.sidebar.subheader("3")
+st.sidebar.subheader("Jumlah K")
 clust = st.sidebar.slider("Pilih jumlah cluster :",1,10)
 
 def k_means(n_clust):
@@ -44,12 +44,12 @@ def k_means(n_clust):
 
     plt.figure(figsize=(10, 8))
 
-    sns.scatterplot(x='Total fat (g)', y='Total Sugars (g)', hue='Labels', size='Labels', markers=True, palette=sns.color_palette('hls', n_colors=n_clust), data=X)
+    sns.scatterplot(x='Total fat (g)', y='Total Sugars (g)', hue='Labels', size='Labels', markers=True, palette=sns.color_palette('hls', n_colors=n_clust), data=x)
 
-    for label in X['Labels']:
+    for label in x['Labels']:
         plt.annotate(label,
-                 (X[X['Labels'] == label]['Total fat (g)'].mean(),
-                  X[X['Labels'] == label]['Total Sugars (g)'].mean()),
+                 (x[x['Labels'] == label]['Total fat (g)'].mean(),
+                  x[x['Labels'] == label]['Total Sugars (g)'].mean()),
                  horizontalalignment='center',
                  verticalalignment='center',
                  size=20, weight='bold',
