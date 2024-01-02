@@ -8,8 +8,8 @@ df = pd.read_csv("India_Menu.csv")
 
 x = df.drop(['Menu Category', 'Menu Items', 'Per Serve Size', 'Energy (kCal)', 'Sat Fat (g)', 'Trans fat (g)', 'Total carbohydrate (g)', 'Added Sugars (g)', 'Sodium (mg)'], axis=1)
 
-st.header("MCD Indian Nutrition")
-st.write('Data yang berisikan mengenai nutrition di mcd india')
+st.header("McDonald's Indian Nutrition")
+st.write('Berikut Data Nutrition di McDonalds Indian')
 st.subheader('Data Asli')
 st.write(df)
 
