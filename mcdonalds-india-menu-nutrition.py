@@ -47,7 +47,7 @@ def k_means(n_clust):
     sns.scatterplot(x='Total fat (g)', y='Total Sugars (g)', hue='Labels', size='Labels', markers=True, palette=sns.color_palette('hls', n_colors=n_clust), data=X)
 
     for label in X['Labels']:
-    plt.annotate(label,
+        plt.annotate(label,
                  (X[X['Labels'] == label]['Total fat (g)'].mean(),
                   X[X['Labels'] == label]['Total Sugars (g)'].mean()),
                  horizontalalignment='center',
@@ -55,7 +55,7 @@ def k_means(n_clust):
                  size=20, weight='bold',
                  color='blue')
                  plt.show()
-                 
+
     st.header('Cluster Plot')
     st.pyplot()
     st.write(x)
