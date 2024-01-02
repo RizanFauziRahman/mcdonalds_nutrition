@@ -54,7 +54,6 @@ def k_means(n_clust):
                  verticalalignment='center',
                  size=20, weight='bold',
                  color='blue')
-                 plt.show()
 
     st.header('Cluster Plot')
     st.pyplot()
