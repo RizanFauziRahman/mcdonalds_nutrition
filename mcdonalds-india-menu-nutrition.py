@@ -24,10 +24,10 @@ sns.lineplot(x=list(range(1, 10)), y=clusters, ax=ax)
 ax.set_title('Mencari Elbow')
 ax.set_xlabel('Number of Clusters')
 
-ax.annotate('Possible elbow point', xy=(2, 110000), xytext=(2, 5000), xycoords='data',
+ax.annotate('Possible elbow point', xy=(2, 115000), xytext=(2, 5000), xycoords='data',
             arrowprops=dict(arrowstyle='->', connectionstyle='arc3', color='blue', lw=2))
 
-ax.annotate('Possible elbow point', xy=(3, 100000), xytext=(3, 170000), xycoords='data',
+ax.annotate('Possible elbow point', xy=(3, 80000), xytext=(3, 150000), xycoords='data',
             arrowprops=dict(arrowstyle='->', connectionstyle='arc3', color='blue', lw=2))
 
 plt.show()
